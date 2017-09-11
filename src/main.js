@@ -4,7 +4,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueRouter from 'vue-router'
 
-import vuex from 'vuex'
+import Vuex from 'vuex'
 
 import App from './App.vue'
 
@@ -12,7 +12,7 @@ import { routes } from './routes'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
-Vue.use(vuex)
+Vue.use(Vuex)
 
 const router = new VueRouter({
     routes: routes
