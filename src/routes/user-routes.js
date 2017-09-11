@@ -41,7 +41,7 @@ export default
             component: Factory,
             name: 'user.create',
             meta: {
-                requiresAuth: true
+                requiresAuth : true
             }
         },
         {

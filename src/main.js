@@ -1,19 +1,33 @@
 import Vue from 'vue'
-import App from './App.vue'
-import VueRouter from 'vue-router'
-import VueAxios from 'vue-axios'
+
 import axios from 'axios'
+import VueAxios from 'vue-axios'
+import VueRouter from 'vue-router'
+
+import vuex from 'vuex'
+
+import App from './App.vue'
 
 import { routes } from './routes'
-Vue.use(VueRouter)
-Vue.use(axios, VueAxios)
 
-axios.defaults.baseURL = 'http://engine-dev/api';
+Vue.use(VueAxios, axios)
+Vue.use(VueRouter)
+Vue.use(vuex)
+
+const router = new VueRouter({
+    routes: routes
+})
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth && false/* check if authenticated here */ ) {
+        next({ name: 'login' })
+    } else {
+        next()
+    }
+})
 
 new Vue({
     el: '#app',
     render: h => h(App),
-    router: new VueRouter({
-        routes: routes
-    })
+    router: router
 })

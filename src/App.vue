@@ -1,13 +1,6 @@
 <template>
 
     <section id="app">
-        <header id="header">
-            <ul class="navigation">
-                <router-link to="/" tag="li">Dashboard</router-link>
-                <router-link :to="{ name: 'user.list' }" tag="li">Users</router-link>
-                <router-link :to="{ name: 'user.create' }" tag="li">Add user</router-link>
-            </ul>
-        </header>
         <router-view></router-view>
     </section>
 
